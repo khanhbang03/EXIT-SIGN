@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LED EXIT SIGN</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* LED Board */
+.led-board{
+    position:relative;
+    width:100%;
+    height:100%;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(255,0,0,0.5);
+}
+
+/* Background image */
+.led-board img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:brightness(0.5) contrast(1.2);
+}
+
+/* LED dot overlay */
+.led-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+        radial-gradient(circle at center, rgba(255,0,0,0.8) 20%, transparent 21%) 0 0/15px 15px;
+    mix-blend-mode:screen;
+    pointer-events:none;
+}
+
+/* Text */
+.led-text{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:120px;
+    font-weight:bold;
+    color:#ff2a2a;
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000,
+        0 0 80px #ff0000;
+    letter-spacing:10px;
+    animation:flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker{
+    0%{ opacity:0.9; }
+    100%{ opacity:1; }
+}
+
+/* Audio player position */
+.audio-player{
+    position:fixed;
+    bottom:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="led-board">
+    <img src="Hoang Thai Son.jpg" alt="Background Image">
+    <div class="led-overlay"></div>
+    <div class="led-text">EXIT SIGN</div>
+</div>
+
+<!-- Audio -->
+<audio class="audio-player"
+       src="HIEUTHUHAI - Exit Sign (prod. by Kewtiie) ft. marzuz [Official Lyric Video].mp3"
+       autoplay
+       loop
+       controls>
+</audio>
+
+</body>
+</html>
